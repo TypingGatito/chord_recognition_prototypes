@@ -55,8 +55,8 @@ def main():
         chords = chord_recognition(
             args.file,
             num_harmonics=1,
-            measure="EUC",
-            filtering="median",
+            measure="KL2",
+            filtering="LP+M",
             L=17
         )
         for c in chords:

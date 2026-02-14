@@ -4,7 +4,7 @@ from .chromagram import *
 from .filters import *
 from .base_generation import *
 
-def recognize_chords_framewise(C, templates, measure="EUC"):
+def recognize_chords_framewise(C, templates, measure="KL2"):
     chord_names = list(templates.keys())
     P = np.stack([templates[k] for k in chord_names])
 
@@ -34,7 +34,7 @@ def decode_chords(D):
 def chord_recognition(
     audio_path,
     num_harmonics=1,
-    measure="EUC",
+    measure="KL2",
     filtering="LP+M",
     L=17
 ):

@@ -1,6 +1,7 @@
 import numpy as np
 import librosa
 
+
 def compute_chromagram(
     audio_path,
     alg="CQT1"
@@ -13,7 +14,6 @@ def compute_chromagram(
     else:
         return compute_chromagram_stft(
             audio_path=audio_path,
-
         )
 
 def compute_chromagram_stft(
