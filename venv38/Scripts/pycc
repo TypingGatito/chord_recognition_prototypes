@@ -1,0 +1,3 @@
+#!c:\common\university\диплом\chord_recognition_protoypes\venv38\scripts\python.exe
+from numba.pycc import main
+main()
