@@ -66,10 +66,12 @@ python main.py --file path/to/file.wav --type manual
 
 Типы:
 
-* `manual`
-* `fmp`
-* `hmm`
-* `hmm_gauss`
+* `dist` - основан на статье "CHORD RECOGNITION USING MEASURES OF FIT, CHORD TEMPLATES AND
+FILTERING METHODS", 2009
+* `lib_dist` - основан на примере https://www.audiolabs-erlangen.de/resources/MIR/FMP/C5/C5S3_ChordRec_Beatles.html
+* `lib_hmm` - основан на примере https://www.audiolabs-erlangen.de/resources/MIR/FMP/C5/C5S3_ChordRec_Beatles.html
+* `t_hmm` - hmm без обучения с подобранными параметрами 
+* `gauss_hmm` - hmm с обучением EM
 
 ---
 

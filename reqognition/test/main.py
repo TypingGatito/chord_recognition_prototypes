@@ -125,8 +125,8 @@ def main():
     parser.add_argument("--aos", action="store_true")
     parser.add_argument(
         "--type",
-        choices=["manual", "fmp", "hmm", "t_hmm", "hmm_gauss"],
-        default="manual",
+        choices=["dist", "lib_dist", "lib_hmm", "t_hmm", "gauss_hmm"],
+        default="dist",
         help="Recognition method"
     )
 
@@ -136,15 +136,15 @@ def main():
     print("args:", args)
     print("=============")
 
-    if args.type == "manual":
+    if args.type == "dist":
         recognition_fn = recognize_manual
-    elif args.type == "fmp":
+    elif args.type == "lib_dist":
         recognition_fn = recognize_fmp
-    elif args.type == "hmm":
+    elif args.type == "lib_hmm":
         recognition_fn = recognize_hmm
     elif args.type == "t_hmm":
         recognition_fn = template_hmm
-    elif args.type == "hmm_gauss":
+    elif args.type == "gauss_hmm":
         BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
         base_dir = os.path.join(BASE_DIR, "..", "..", "data_sets", "IDMT-SMT-CHORDS", "guitar")
