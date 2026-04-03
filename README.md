@@ -289,3 +289,5 @@ source venv/bin/activate
 ```
 
 ---
+
+Полный датасет можно скачать по ссылке https://drive.google.com/file/d/1jXUSQdheugeK_OgMmLjxa4MC1P0oDUXd/view?usp=sharing
