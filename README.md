@@ -6,26 +6,10 @@
 
 * метрический (template-based)
 * библиотечный (librosa / FMP)
-* вероятностный HMM
 * Gaussian HMM (с обучением на датасете)
+* нейросетевой (madmom и omnizart)
 
 Поддерживается оценка качества через метрику **AOS (Average Overlap Score)**.
-
----
-
-## Зависимости
-
-Установить:
-
-```bash
-pip install numpy librosa
-```
-
-Дополнительно:
-
-```bash
-pip install scipy
-```
 
 ---
 
@@ -78,7 +62,7 @@ FILTERING METHODS", 2009
 ### 2. Тест на первых 20 секундах датасета
 
 ```bash
-python main.py --test --dataset path/to/dataset --type hmm
+python main.py --test --dataset path/to/dataset --type lib_hmm
 ```
 
 ---
@@ -86,7 +70,7 @@ python main.py --test --dataset path/to/dataset --type hmm
 ### 3. Оценка AOS для одного файла
 
 ```bash
-python main.py --file path/to/file.wav --aos --type hmm
+python main.py --file path/to/file.wav --aos --type lib_hmm
 ```
 
 Требуется файл:
@@ -100,7 +84,7 @@ file.lab
 ### 4. Оценка AOS на всём датасете
 
 ```bash
-python main.py --dataset path/to/dataset --aos --type hmm
+python main.py --dataset path/to/dataset --aos --type lib_hmm
 ```
 
 ---
@@ -108,7 +92,7 @@ python main.py --dataset path/to/dataset --aos --type hmm
 ### 5. Использование микрофона
 
 ```bash
-python main.py --type manual
+python main.py --type dist
 ```
 
 ---
@@ -118,10 +102,10 @@ python main.py --type manual
 При выборе:
 
 ```bash
---type hmm_gauss
+--type gauss_hmm
 ```
 
-происходит:
+Происходит:
 
 * автоматическая загрузка всех `.wav` из:
 
@@ -131,6 +115,25 @@ data_sets/IDMT-SMT-CHORDS/guitar
 
 * обучение модели HMM
 * использование обученной модели для распознавания
+
+## Нейросетевые методы (madmom / omnizart)
+
+Данный модуль реализует распознавание аккордов с использованием нейросетевых моделей через единый CLI-интерфейс.
+
+Поддерживаются методы:
+
+* `madmom` — модели из библиотеки madmom (feature extraction + DL)
+* `omnizart` — готовые deep learning модели
+
+---
+
+## Способы запуска
+
+### 1. Распознавание файла
+
+```bash
+python neural_main.py --file path/to/file.wav --type madmom
+```
 
 ---
 
